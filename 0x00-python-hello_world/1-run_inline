@@ -1,2 +1,2 @@
 #!/bin/bash
-interpreter $PYCODE
+python3 $PYCODE
