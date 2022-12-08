@@ -1,13 +1,33 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if not roman_string or type(roman_string) != str:
-        return 0
-    roman_d = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    roman_n = 0
-    for j in range(len(roman_string)):
-        if j > 0 and roman_d[roman_string[j]] > roman_d[roman_string[j - 1]]:
-            roman_n += roman_d[roman_string[j]] - 2 * \
-                        roman_d[roman_string[j - 1]]
-        else:
-            roman_n += roman_d[roman_string[j]]
-    return 
+    value = 0
+    if not (isinstance(roman_string, str)):
+        return (0)
+    for i in range(len(roman_string)):
+        if (roman_string[i] == 'I'):
+            value += 1
+        if (roman_string[i] == 'V'):
+            if (roman_string[i - 1] == 'I' and i != 0):
+                value -= 2
+            value += 5
+        if (roman_string[i] == 'X'):
+            if (roman_string[i - 1] == 'I' and i != 0):
+                value -= 2
+            value += 10
+        if (roman_string[i] == 'L'):
+            if (roman_string[i - 1] == 'X' and i != 0):
+                value -= 20
+            value += 50
+        if (roman_string[i] == 'C'):
+            if (roman_string[i - 1] == 'X' and i != 0):
+                value -= 20
+            value += 100
+        if (roman_string[i] == 'D'):
+            if (roman_string[i - 1] == 'C' and i != 0):
+                value -= 200
+            value += 500
+        if (roman_string[i] == 'M'):
+            if (roman_string[i - 1] == 'C' and i != 0):
+                value -= 200
+            value += 1000
+    return (value) 
