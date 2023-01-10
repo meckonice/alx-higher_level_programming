@@ -1,11 +1,15 @@
 #!/usr/bin/python3
-
-'''Task 01 - 1. My list'''
+"""Module 1-my_list.
+Creates a class inheriting from the list class.
+"""
 
 
 class MyList(list):
-    '''class MyList'''
+    """Class MyList inherits from list."""
+
     def print_sorted(self):
-        '''Function that prints the list,
-        but sorted (ascending sort)'''
-        print(sorted(self))
+        """Prints the list, in ascending sort."""
+
+        new_list = self[:]
+        new_list.sort()
+        print("{}".format(new_list))
